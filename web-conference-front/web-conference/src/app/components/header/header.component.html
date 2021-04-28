@@ -1,0 +1,26 @@
+<div #header class="app-header d-flex align-items-center mb-3 h-100">
+  <div class="header-title ml-5 mr-5" (click)="routingService.navigateHome()">WEB CONFERENCE</div>
+
+  <div class="header-navigation mr-auto">
+    <div class="d-inline-block mr-2" *ngFor="let item of navigationItems">
+      <button *ngIf="item.isVisible()" class="navigation-item p-2" kendoButton (click)="item.onClick()" look="flat" [class.selected-navigation-item]="item.isSelected">{{ item.text }}</button>
+    </div>
+  </div>
+
+  <div class="user-info px-3 py-2 mr-2" (click)="toggleUserDropdown()">
+    <div class="user-name d-inline-block">
+      <span>{{ !appService.user ? 'Гость' : appService.user.name }}</span>
+    </div>
+    <kendo-avatar class="user-avatar ml-3" [shape]="'circle'" [icon]="'user'" [size]="'medium'"></kendo-avatar>
+  </div>
+</div>
+  
+<kendo-popup #user_dropdown class="user-dropdown" *ngIf="showUserDropdown" [anchor]="header" [anchorAlign]="anchorAlign" [popupAlign]="popupAlign">
+  <div class="d-flex flex-column align-items-center my-1">
+    <div class="w-100" *ngFor="let item of userDropdownItems">
+      <button kendoButton class="w-100" *ngIf="!item.isSeparator && item.isVisible()" (click)="item.onClick()" [disabled]="item.isDisabled()" look="flat">{{ item.text }}</button>
+      <hr class="my-1" *ngIf="item.isSeparator" />
+    </div>
+  </div>
+</kendo-popup>
+  

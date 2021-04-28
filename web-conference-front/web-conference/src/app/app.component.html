@@ -1,0 +1,10 @@
+<div class='container-fluid h-100'>
+  <div class='row row-cols-1 h-100'>
+    <div class='col-12' style="height: 80px;">
+      <app-header [selectedNavItem]="appService.selectedNavItem"></app-header>
+    </div>
+    <div class='col-12' [style.height]="'calc(100% - 80px)'">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

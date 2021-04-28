@@ -1,0 +1,73 @@
+<div class="container p-5 h-100 main-container">
+  <div class="content-card row">
+    <div class="col-sm">
+      <div class="row header-row">
+        <h1>Личная информация</h1>
+      </div>
+      <div class="row info-row">
+        <div class="col info-nm">
+          Имя
+        </div>
+        <div class="col info-content">
+          <span>{{appService.user.name}}</span>
+        </div>
+        <div class="col info-edit-b">
+          <input type="submit" id="editB" value="edit">
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col info-nm">
+          Почта
+        </div>
+        <div class="col info-content">
+          <span>{{appService.user.email}}</span>
+        </div>
+        <div class="col info-edit-b">
+          <input type="submit" id="editB" value="edit">
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col info-nm">
+          Пароль
+        </div>
+        <div class="col info-content">
+          <span>{{appService.user.password}}</span>
+        </div>
+        <div class="col info-edit-b">
+          <input type="submit" id="editB" value="edit">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="row header-row">
+        <h1>Комнаты</h1>
+      </div>
+      <div class="row">
+        <form [formGroup]="createRoomForm" class="create-room-form">
+          <kendo-formfield style="max-width: 80%">
+            <kendo-textbox-container class="mt-2 room-name-txtbox" [style.width]="'400px'" floatingLabel="Название комнаты">
+              <input formControlName="name" kendoTextBox />
+            </kendo-textbox-container>
+          </kendo-formfield>
+          <input type="submit" id="editB" value="create room" style="padding-left: 15px" (click)="createNewRoom()">
+        </form>
+      </div>
+      <div *ngFor='let userRoom of userRooms'>
+        <div class="row room-row">
+          <div class="col room-id">
+            {{userRoom.room_name}}
+          </div>
+          <div class="col room-role">
+            {{userRoom.user_role}}
+          </div>
+          <div class="col room-join-b">
+            <input type="submit" id="joinB" value="join" (click)="joinRoom(userRoom.room_id)">
+          </div>
+          <div class="col room-remove-b">
+            <input type="submit" id="removeB" value="remove">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

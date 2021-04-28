@@ -1,0 +1,11 @@
+{
+  "type": "postgres",
+  "host": "web-conf-db.cf5dmxohtlni.eu-central-1.rds.amazonaws.com",
+  "port": 5432,
+  "username": "postgres_admin",
+  "password": "adminpassword",
+  "database": "web_conf_db",
+  "entities": [
+    null
+  ]
+}

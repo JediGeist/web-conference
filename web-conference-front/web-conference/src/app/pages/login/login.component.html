@@ -1,0 +1,30 @@
+<div class="container h-100">
+  <div class="row align-items-center justify-content-center h-75">
+    <div class="content-card col-auto align-self-center py-5">
+      <div class="row col">
+        <h3>Войти в аккаунт</h3>
+      </div>
+      <div class="row col">
+        <form [formGroup]="loginForm">
+          <fieldset class="k-form-fieldset">
+            <kendo-formfield>
+              <kendo-textbox-container class="mt-2" [style.width]="'400px'" floatingLabel="Логин">
+                <input formControlName="login" kendoTextBox />
+              </kendo-textbox-container>
+            </kendo-formfield>
+      
+            <kendo-formfield>
+              <kendo-textbox-container class="mt-2" [style.width]="'400px'" floatingLabel="Пароль">
+                <input formControlName="password" type="password" kendoTextBox />
+              </kendo-textbox-container>
+            </kendo-formfield>
+      
+            <div class="k-form-buttons mt-4">
+              <button class="k-button k-primary" (click)="submitForm()">Войти</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

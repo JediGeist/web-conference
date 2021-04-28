@@ -1,0 +1,46 @@
+@import "../../../assets/style/variables.scss";
+
+.app-header {
+  background-color: $header-background-color;
+  box-shadow: 0 3px 10px 5px $header-shadow-color;
+}
+
+.header-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: $default-text-color;
+  cursor: pointer;
+}
+
+.header-navigation .navigation-item {
+  border-radius: 10px !important;
+  color: $default-text-color;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.header-navigation .selected-navigation-item {
+  color: $header-selected-item-color;
+}
+
+.user-info {
+  border: 1.5px solid #fff;
+  border-radius: 3%;
+}
+
+.user-info .user-name {
+  font-size: 17px;
+  font-weight: lighter;
+  color: $default-text-color;
+}
+
+.user-info .user-avatar {
+  height: 45px;
+  width: 45px;
+  background-color: $header-selected-item-color;
+}
+
+.user-dropdown {
+  width: 150px;
+  transform: translateX(-0.5rem);
+}
