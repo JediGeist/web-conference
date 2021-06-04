@@ -1,0 +1,58 @@
+<div class="container p-5 h-100 main-container">
+  <div class="content-card row">
+    <div class="col-sm">
+      <div class="row header-row">
+        <h1>Создание конференции</h1>
+      </div>
+      <form [formGroup]="createRoomForm">
+        <div class="row row-content">
+          <div class="col col-label">Название конференции:</div>
+          <div class="col col-input">
+            <kendo-formfield>
+              <kendo-textbox-container class="mt-2 kendo-input">
+                <input formControlName="name" type="password" kendoTextBox />
+              </kendo-textbox-container>
+            </kendo-formfield>
+          </div>
+        </div>
+        <div class="row row-content">
+          <div class="col col-label">Описание конференции:</div>
+          <div class="col col-input">
+            <kendo-formfield>
+              <kendo-textbox-container class="mt-2 kendo-input">
+                <input formControlName="description" kendoTextBox />
+              </kendo-textbox-container>
+            </kendo-formfield>
+          </div>
+        </div>
+        <div class="row row-content">
+          <div class="col col-label">Роль пользователя в конференции:</div>
+          <div class="col col-input">owner</div>
+        </div>
+        <div class="row row-content">
+          <div class="col col-label">Время проведения конференции:</div>
+          <div class="col col-input">
+            <kendo-formfield>
+              <kendo-textbox-container class="mt-2 kendo-input">
+                <input formControlName="schedule" kendoTextBox />
+              </kendo-textbox-container>
+            </kendo-formfield>
+          </div>
+        </div>
+        <div class="row row-content">
+          <div class="col col-label">Пароль конференции:</div>
+          <div class="col col-input">
+            <kendo-formfield>
+              <kendo-textbox-container class="mt-2 kendo-input">
+                <input formControlName="password" kendoTextBox />
+              </kendo-textbox-container>
+            </kendo-formfield>
+          </div>
+        </div>
+      </form>
+      <div class="k-form-buttons mt-4 create-button">
+        <button class="k-button k-primary" (click)="createRoom()">Создать комнату</button>
+      </div>
+    </div>
+  </div>
+</div>

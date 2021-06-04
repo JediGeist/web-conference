@@ -41,7 +41,6 @@ export class JoinComponent implements OnInit {
         if (!result.room_id) {
           this.notifyService.showError('Неизвестный идентификатор комнаты!');
         } else {
-          console.log(1);
           window.open('https://web-conference-hse-room.herokuapp.com/' + result.room_id,'_blank');
         }
       },

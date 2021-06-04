@@ -37,11 +37,23 @@ export class RoutingService {
     this.navigate('profile');
   }
 
+  public navigateRooms(): void {
+    this.navigate('rooms');
+  }
+
+  public navigateRoomInfo(room_id): void {
+    this.navigateWithParameter('room-info', [room_id]);
+  }
+
   public navigateJoin(): void {
     this.navigate('join');
   }
 
   public navigateCreateRoom(): void {
     this.navigate('create-room');
+  }
+
+  public navigateCreateUserRoom(): void {
+    this.navigate('create-user-room');
   }
 }

@@ -1,0 +1,78 @@
+<div class="container p-5 h-100 main-container">
+  <div class="content-card row">
+    <div class="col-sm">
+      <div class="row header-row">
+        <h1>Информация о конференции</h1>
+      </div>
+      <div class="row row-buttons">
+        <div class="col room-edit-b">
+          <input type="submit" id="editB" value="edit" (click)="editRoomEnable()">
+        </div>
+        <div class="col room-join-b">
+          <input type="submit" id="joinB" value="join" (click)="joinRoom(room_id)">
+        </div>
+        <div class="col room-remove-b">
+          <input type="submit" id="removeB" value="remove" (click)="removeRoom()">
+        </div>
+      </div>
+      <form [formGroup]="createRoomForm" *ngIf="this.isRoomLoaded">
+          <div class="row row-content">
+            <div class="col col-label">Название конференции:</div>
+            <div class="col col-input" *ngIf="!this.editRoom">{{room.name}}</div>
+            <div class="col col-input" *ngIf="this.editRoom">
+              <kendo-formfield>
+                <kendo-textbox-container class="mt-2 kendo-input" [style.width]="'400px'">
+                  <input formControlName="name" kendoTextBox value="{{room.name}}" />
+                </kendo-textbox-container>
+              </kendo-formfield>
+            </div>
+          </div>
+          <div class="row row-content">
+            <div class="col col-label">Описание конференции:</div>
+            <div class="col col-input" *ngIf="!this.editRoom">{{room.info}}</div>
+            <div class="col col-input" *ngIf="this.editRoom">
+              <kendo-formfield>
+                <kendo-textbox-container class="mt-2 kendo-input" [style.width]="'400px'">
+                  <input formControlName="description" kendoTextBox />
+                </kendo-textbox-container>
+              </kendo-formfield>
+            </div>
+          </div>
+          <div class="row row-content">
+            <div class="col col-label">Роль пользователя в конференции:</div>
+            <div class="col col-input">owner</div>
+          </div>
+          <div class="row row-content">
+            <div class="col col-label">Время проведения конференции:</div>
+            <div class="col col-input" *ngIf="!this.editRoom">{{room.schedule}}</div>
+            <div class="col col-input" *ngIf="this.editRoom">
+              <kendo-formfield>
+                <kendo-textbox-container class="mt-2 kendo-input" [style.width]="'400px'">
+                  <input formControlName="schedule" kendoTextBox />
+                </kendo-textbox-container>
+              </kendo-formfield>
+            </div>
+          </div>
+          <div class="row row-content">
+            <div class="col col-label">Пароль конференции:</div>
+            <div class="col col-input" *ngIf="!this.editRoom">{{room.password}}</div>
+            <div class="col col-input" *ngIf="this.editRoom">
+              <kendo-formfield>
+                <kendo-textbox-container class="mt-2 kendo-input" [style.width]="'400px'">
+                  <input formControlName="password" kendoTextBox />
+                </kendo-textbox-container>
+              </kendo-formfield>
+            </div>
+          </div>
+      </form>
+      <div class="row">
+        <div *ngIf="this.editRoom" class="k-form-buttons mt-4">
+            <button class="k-button k-primary" (click)="createRoom()">Сохранить изменения</button>
+        </div>
+        <div *ngIf="this.editRoom" class="k-form-buttons mt-4">
+          <button class="k-button k-primary" (click)="changeEditRoom()">Отменить изменения</button>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

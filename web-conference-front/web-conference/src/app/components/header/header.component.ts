@@ -53,6 +53,12 @@ export class HeaderComponent implements OnInit, OnChanges {
       onClick: () => this.routingService.navigateProfile()
     },
     {
+      text: 'Мои конференции',
+      isDisabled: () => false,
+      isVisible: () => !!this.appService.user,
+      onClick: () => this.routingService.navigateRooms()
+    },
+    {
       text: 'Выйти',
       isDisabled: () => false,
       isVisible: () => !!this.appService.user,

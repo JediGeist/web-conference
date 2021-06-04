@@ -13,4 +13,19 @@ export class Room {
 
     @Column()
     owner_id: string;
+
+    @Column({
+        nullable: true
+    })
+    schedule: Date;
+
+    @Column({
+        nullable: true
+    })
+    info: string;
+
+    @Column({
+        nullable: true
+    })
+    password: string;
 }

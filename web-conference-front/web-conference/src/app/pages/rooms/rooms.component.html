@@ -1,0 +1,54 @@
+<div class="container p-5 h-100 main-container">
+  <div class="content-card row">
+    <div class="col-sm">
+      <div class="row header-row">
+        <h1>Комнаты</h1>
+      </div>
+      <div class="row">
+        <input type="submit" id="editB" value="create room" style="padding-left: 15px; max-width: 100px; padding-bottom: 15px;" (click)="createNewRoom()">
+      </div>
+      <div class="row header-row">
+        <div class="col">
+          Название конференции
+        </div>
+        <div class="col">
+          Роль пользователя
+        </div>
+        <div class="col">
+          Время конференции
+        </div>
+        <div class="col">
+          Информация
+        </div>
+        <div class="col">
+          Присоединиться
+        </div>
+        <div class="col">
+          Удалить
+        </div>
+      </div>
+      <div *ngFor='let userRoom of userRooms'>
+        <div class="row room-row">
+          <div class="col room-id">
+            {{userRoom.room_name}}
+          </div>
+          <div class="col room-role">
+            {{userRoom.user_role}}
+          </div>
+          <div class="col room-date">
+            {{userRoom.schedule}}
+          </div>
+          <div class="col room-info-b">
+            <input type="submit" id="infoB" value="info" (click)="getRoomInfo(userRoom.room_id)">
+          </div>
+          <div class="col room-join-b">
+            <input type="submit" id="joinB" value="join" (click)="joinRoom(userRoom.room_id)">
+          </div>
+          <div class="col room-remove-b">
+            <input type="submit" id="removeB" value="remove">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

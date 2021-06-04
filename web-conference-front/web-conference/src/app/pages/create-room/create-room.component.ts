@@ -17,7 +17,7 @@ import {Router} from "@angular/router";
 export class CreateRoomComponent implements OnInit {
 
   public createRoomForm: FormGroup = new FormGroup({
-    name: new FormControl()
+    password: new FormControl()
   });
 
   constructor(private router: Router,
@@ -30,10 +30,10 @@ export class CreateRoomComponent implements OnInit {
   public createRoom() {
     console.log(this.appService.user);
 
-    const roomName = this.createRoomForm.get('name').value;
+    const roomPassword = this.createRoomForm.get('password').value;
 
     const data: CreateRoomRequest = {
-      name: roomName,
+      name: 'temp',
       owner_id: this.appService.user.user_id
     };
         

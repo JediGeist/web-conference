@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import { Injectable, NotFoundException, UnauthorizedException} from "@nestjs/common";
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, getConnection } from 'typeorm';
 
@@ -14,12 +14,15 @@ export class RoomService {
         private readonly commonService: CommonService
     ) {}  
 
-    async addRoom(roomId: string, roomName: string, ownerId: string) {
+    async addRoom(roomId: string, roomName: string, ownerId: string, info: string, schedule: Date, password: string) {
 
         const room = this.roomRepository.create({
             room_id: roomId,
             name: roomName,
-            owner_id: ownerId
+            owner_id: ownerId,
+            info: info,
+            schedule: schedule,
+            password: password
         });
         await this.roomRepository.save(room);
 
@@ -65,5 +68,16 @@ export class RoomService {
         }
 
         return room;
+    }
+
+    async checkRoomPassword(roomId: string, roomPassword: string) {
+        const room = await this.roomRepository.findOne({room_id: roomId});
+
+        if (room && room.password === roomPassword) {
+            return {user_id: room.room_id};
+            //returnconst {password, ...secureUser} = user;
+            //return secureUser;
+        }
+        throw new UnauthorizedException();
     }
 }
